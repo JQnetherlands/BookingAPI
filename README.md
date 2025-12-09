@@ -21,6 +21,7 @@ To start the app, follow these steps:
 ```plaintext
 AUTH_SECRET_KEY=your_secret_key_here
 SENTRY_DSN=your_sentry_dsn_here
+DATABASE_URL=""
 ```
 
 ## Running tests
