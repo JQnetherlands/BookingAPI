@@ -31,7 +31,7 @@ Tests are created using Newman, a command-line tool that is able to automate exe
 
 To run the tests, perform the following steps:
 
-1. Start the server. This can usually be done by running `npm run dev` in the folder you want to test. Please not this command reset and reseed the DB
+1. Start the server. This can usually be done by running `npm run dev` in the folder you want to test. Please note this command reset and reseed the DB
 2. Go to `postman/environments` folder in the repo. It has a content like this:
 
 ```json
