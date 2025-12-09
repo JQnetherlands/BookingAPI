@@ -9,6 +9,6 @@ export const validateHostUserName = async ({ username }) => {
   });
 
   if (existingUserName) {
-    throw new BadRequestError("User has already reviewed this property");
+    throw new BadRequestError("User name already in used");
   }
 };
