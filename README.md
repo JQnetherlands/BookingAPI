@@ -15,6 +15,7 @@ npm run dev
 
 To start the app, follow these steps:
 
+0. I added an `.env.example`
 1. Create a `.env` file in the root directory.
 2. Replace the values for `AUTH_SECRET_KEY` and `SENTRY_DSN` with your own values.
 
