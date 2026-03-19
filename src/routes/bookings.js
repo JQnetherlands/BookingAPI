@@ -29,7 +29,7 @@ router.get('/:id', async (req, res, next) => {
     }
 })
 
-router.post('/', authMiddleware,async (req, res, next) => {
+router.post('/', authMiddleware, async (req, res, next) => {
     try {
         const { userId, propertyId, checkinDate, checkoutDate, numberOfGuests, totalPrice, bookingStatus } = req.body;
         const booking = await createBooking({ userId, propertyId, checkinDate: new Date(checkinDate), checkoutDate: new Date(checkoutDate), numberOfGuests, totalPrice, bookingStatus });

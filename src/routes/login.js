@@ -10,7 +10,6 @@ const prisma = new PrismaClient();
 router.post("/", async (req, res) => {
   const secretKey = process.env.AUTH_SECRET_KEY;
     //   const { username, password } = req.body;
-    console.log(req.body)
   const reqUsername = req.body.username;
   const reqPassword = req.body.password;
 

@@ -18,4 +18,3 @@ const logMiddleware = (req, res, next) => {
 
 export default logMiddleware;
 
-// the method, originalUrl, statusCode, ms req.originalUrl, req.statusCode req.method
