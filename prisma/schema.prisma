@@ -10,8 +10,8 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
-  url      = "file:./dev.db"
+  provider = "postgresql"
+  url      = "postgresql://postgres:WNnOwlGvcxpvplcEDIDTFpsKIPbtfNCe@autorack.proxy.rlwy.net:18792/railway"
 }
 
 model Host {
