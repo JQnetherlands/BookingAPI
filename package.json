@@ -6,11 +6,10 @@
   "main": "src/index.js",
   "scripts": {
     "dev": "nodemon src/index.js",
-    "start": "node src/index.js",
+    "start": "npx prisma migrate deploy && npx prisma db seed && node src/index.js",
     "migrate": "npx prisma migrate deploy",
     "seed": "node prisma/seed.js",
     "postinstall": "npx prisma generate",
-    
     "test-positive": "newman run \"./postman/collections/Bookings API.json\" -e \"./postman/environments/Local.postman_environment.json\"",
     "test-negative": "newman run \"./postman/collections/Bookings API Negative.json\" -e \"./postman/environments/Local.postman_environment.json\"",
     "test": "npx prisma db push --force-reset && npx prisma db seed && npm run test-positive && npm run test-negative",
@@ -20,7 +19,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@prisma/adapter-better-sqlite3": "^6.19.0",
     "@prisma/client": "^6.19.0",
     "@sentry/node": "^10.26.0",
     "dotenv": "^16.6.1",
