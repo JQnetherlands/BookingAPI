@@ -1,4 +1,4 @@
-import { PrismaClient } from "../../generated/prisma/client.js";
+import prisma from "../../lib/prisma.js";
 import {
   calculateTotalPrice,
   validateBooking,
@@ -7,8 +7,6 @@ import {
   validateProperty,
   validateUser,
 } from "../../utils/bookingHelpers.js";
-
-const prisma = new PrismaClient();
 
 const updateBooking = async ({
   id,

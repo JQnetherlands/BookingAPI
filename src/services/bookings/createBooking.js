@@ -1,5 +1,5 @@
 import BadRequestError from "../../errors/BadRequestError.js";
-import { PrismaClient } from "../../generated/prisma/client.js";
+import prisma from "../../lib/prisma.js";
 import {
   validateDates,
   validateGuests,
@@ -8,7 +8,6 @@ import {
 } from "../../utils/bookingHelpers.js";
 import { validateRequired } from "../../utils/validate.js";
 
-const prisma = new PrismaClient();
 
 const createBooking = async ({
   userId,

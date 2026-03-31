@@ -1,7 +1,5 @@
-import { PrismaClient } from "../../generated/prisma/client.js";
+import prisma from "../../lib/prisma.js";
 import { validateBooking } from "../../utils/bookingHelpers.js";
-
-const prisma = new PrismaClient();
 
 const deleteBooking = async ({ id }) => {
 

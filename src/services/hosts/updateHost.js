@@ -1,8 +1,7 @@
-import { PrismaClient } from "../../generated/prisma/client.js";
+import prisma from "../../lib/prisma.js";
 import { validateHost } from "../../utils/bookingHelpers.js";
 import { validateEmail, validatePhone, validateString } from "../../utils/validate.js";
 
-const prisma = new PrismaClient();
 
 const updateHost = async ({ id, username, password, name, email, phoneNumber, pictureUrl, aboutMe}) => {
     await validateHost(id);

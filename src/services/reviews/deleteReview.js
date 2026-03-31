@@ -1,7 +1,6 @@
-import { PrismaClient } from "../../generated/prisma/client.js";
+import prisma from "../../lib/prisma.js";
 import { validateReviewId } from "../../utils/reviewHelpers.js";
 
-const prisma = new PrismaClient();
 
 const deleteReview = async ({ id }) => {
     

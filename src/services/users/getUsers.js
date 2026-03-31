@@ -1,6 +1,5 @@
-import { PrismaClient } from "../../generated/prisma/client.js"
+import prisma from "../../lib/prisma.js";
 import NotFoundError from "../../errors/NotFoundError.js";
-const prisma = new PrismaClient();
 
 const getUsers = async ({username, email}) => {
     const where = {};

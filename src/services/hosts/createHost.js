@@ -1,5 +1,5 @@
 import BadRequestError from "../../errors/BadRequestError.js";
-import { PrismaClient } from "../../generated/prisma/client.js";
+import prisma from "../../lib/prisma.js";
 import { validateHostUserName } from "../../utils/hostHelper.js";
 import {
   validateEmail,
@@ -7,7 +7,6 @@ import {
   validateString,
 } from "../../utils/validate.js";
 
-const prisma = new PrismaClient();
 
 const createHost = async ({
   username,

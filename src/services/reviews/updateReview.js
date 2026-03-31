@@ -1,8 +1,7 @@
-import { PrismaClient } from "../../generated/prisma/client.js";
+import prisma from "../../lib/prisma.js";
 import { validateProperty, validateUser } from "../../utils/bookingHelpers.js";
 import { validateInteger, validateNumber, validateRange, validateString } from "../../utils/validate.js";
 import { validateReviewId } from "../../utils/reviewHelpers.js";
-const prisma = new PrismaClient();
 
 const updateReview = async ({ id, userId, propertyId, rating, comment }) => {
     await validateReviewId({ id });

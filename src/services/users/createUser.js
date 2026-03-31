@@ -1,7 +1,5 @@
 import BadRequestError from "../../errors/BadRequestError.js";
-import { PrismaClient } from "../../generated/prisma/client.js";
-
-const prisma = new PrismaClient();
+import prisma from "../../lib/prisma.js";
 
 const createUser = async ({
   username,

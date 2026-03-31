@@ -1,5 +1,5 @@
 import BadRequestError from "../../errors/BadRequestError.js";
-import { PrismaClient } from "../../generated/prisma/client.js";
+import prisma from "../../lib/prisma.js";
 import { validateProperty, validateUser } from "../../utils/bookingHelpers.js";
 import { validateReview } from "../../utils/reviewHelpers.js";
 import { toNumber } from "../../utils/toNumber.js";
@@ -11,7 +11,6 @@ import {
   validateString,
 } from "../../utils/validate.js";
 
-const prisma = new PrismaClient();
 
 const createReview = async ({ userId, propertyId, rating, comment }) => {
   const required = { userId, propertyId, rating, comment };

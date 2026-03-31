@@ -1,11 +1,9 @@
 import "dotenv/config";
 import { Router } from "express";
-import { PrismaClient } from "../generated/prisma/client.js";
+import prisma from "../lib/prisma.js";
 import jwt from "jsonwebtoken";
 
 const router = Router();
-
-const prisma = new PrismaClient();
 
 router.post("/", async (req, res) => {
   const secretKey = process.env.AUTH_SECRET_KEY;

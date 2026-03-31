@@ -1,11 +1,10 @@
-import { PrismaClient } from "../src/generated/prisma/client.js";
+import prisma from "../src/lib/prisma";
+
 import hostData from "../src/data/hosts.json" with { type: 'json' };
 import propertyData from "../src/data/properties.json" with { type: 'json' };
 import userData from "../src/data/users.json" with { type: 'json' };
 import bookingData from "../src/data/bookings.json" with { type: 'json' };
 import reviewData from "../src/data/reviews.json" with { type: 'json' };
-
-const prisma = new PrismaClient({ log: ['query', 'info', 'warn', 'error'] });
 
 async function main() {
     const { hosts } = hostData;

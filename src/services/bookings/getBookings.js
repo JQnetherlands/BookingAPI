@@ -1,7 +1,5 @@
-import { PrismaClient } from "../../generated/prisma/client.js";
+import prisma from "../../lib/prisma.js";
 import { validateUser } from "../../utils/bookingHelpers.js";
-
-const prisma = new PrismaClient();
 
 const getBookings = async ({userId}) => {
     const where = {};

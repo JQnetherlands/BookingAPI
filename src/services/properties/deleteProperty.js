@@ -1,6 +1,5 @@
-import { PrismaClient } from '../../generated/prisma/client.js'
+import prisma from '../../lib/prisma.js';
 import { validateProperty } from '../../utils/bookingHelpers.js'
-const prisma = new PrismaClient();
 
 const deleteProperty = async ({ id }) => {
     await validateProperty(id);

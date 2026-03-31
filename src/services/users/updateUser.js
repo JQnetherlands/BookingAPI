@@ -1,4 +1,4 @@
-import { PrismaClient } from "../../generated/prisma/client.js";
+import prisma from "../../lib/prisma.js";
 import {
   validateEmail,
   validateName,
@@ -9,8 +9,6 @@ import {
 } from "../../utils/validate.js";
 import { validateUser } from "../../utils/bookingHelpers.js";
 import BadRequestError from "../../errors/BadRequestError.js";
-
-const prisma = new PrismaClient();
 
 const updateUser = async ({
   id,
