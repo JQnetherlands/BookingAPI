@@ -1,4 +1,4 @@
-import prisma from "../src/lib/prisma";
+import prisma from "../src/lib/prisma.js";
 
 import hostData from "../src/data/hosts.json" with { type: 'json' };
 import propertyData from "../src/data/properties.json" with { type: 'json' };
