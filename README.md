@@ -1,64 +1,295 @@
-# BED Final Project Starter
+# 🏡 Booking Management API
 
-This repository contains starter code for the Bookings project.
+A **Node.js + Express REST API** for managing bookings, properties, hosts, reviews, and users.  
+Built with a focus on **clean architecture, service-layer separation, JWT authentication, and maintainability**, this API powers booking and property management applications.
 
-## How to get started
+---
 
-You can clone the repo, install and run the app with the following commands:
+# 🚀 Live API
 
-```plaintext
+Base URL: *https://bookingapi-production-d45d.up.railway.app/*
+
+[https://bookingapi-production-d45d.up.railway.app/](https://bookingapi-production-d45d.up.railway.app/)
+
+---
+
+# 🧠 Project Goal
+
+This project was developed for my **portfolio** to demonstrate real-world backend engineering practices.  
+The goal was to design a **scalable, maintainable, and production-ready backend**, capable of handling bookings, properties, users, and associated data.
+
+Key goals:
+
+- Clean, modular architecture  
+- Reusable business logic (service layer)  
+- Centralized error handling  
+- JWT-based authentication for protected routes  
+- Scalable folder structure  
+- Clear, predictable API responses  
+
+---
+
+# ✨ Features
+
+- Bookings CRUD (protected write operations)  
+- Properties CRUD (protected write operations)  
+- Hosts CRUD (protected write operations)  
+- Reviews CRUD (protected write operations)  
+- Users CRUD (protected write operations)  
+- JWT-based Authentication  
+
+---
+
+# 🛠 Tech Stack
+
+- Node.js  
+- Express  
+- Prisma (ORM)  
+- PostgreSQL (Railway)  
+- JWT authentication  
+- REST API principles  
+- Postman for testing  
+
+---
+
+# 📁 Project Structure
+
+```text
+src/
+├── data/
+│   ├── amenities.json
+│   ├── bookings.json
+│   ├── hosts.json
+│   ├── properties.json
+│   ├── reviews.json
+│   └── users.json
+├── generated/
+│   └── prisma/                 # auto-generated Prisma client
+├── lib/
+│   └── prisma.js               # Prisma client wrapper
+├── middleware/
+│   ├── auth.js
+│   ├── errorHandler.js
+│   ├── logMiddleware.js
+│   └── NotFoundErrorHandler.js
+├── routes/
+│   ├── bookings.js
+│   ├── hosts.js
+│   ├── login.js
+│   ├── properties.js
+│   ├── reviews.js
+│   └── users.js
+├── services/
+│   ├── bookings/
+│   │   ├── createBooking.js
+│   │   ├── deleteBooking.js
+│   │   ├── getBookingById.js
+│   │   ├── getBookings.js
+│   │   └── updateBooking.js
+│   ├── hosts/
+│   │   ├── createHost.js
+│   │   ├── deleteHost.js
+│   │   ├── getHostById.js
+│   │   ├── getHosts.js
+│   │   └── updateHost.js
+│   ├── properties/
+│   │   ├── createProperty.js
+│   │   ├── deleteProperty.js
+│   │   ├── getProperties.js
+│   │   ├── getPropertyById.js
+│   │   └── updateProperty.js
+│   ├── reviews/
+│   │   ├── createReview.js
+│   │   ├── deleteReview.js
+│   │   ├── getReviewById.js
+│   │   ├── getReviews.js
+│   │   └── updateReview.js
+│   └── users/
+│       ├── createUser.js
+│       ├── deleteUser.js
+│       ├── getUserById.js
+│       ├── getUsers.js
+│       └── updateUser.js
+├── errors/
+│   ├── BadRequestError.js
+│   └── NotFoundError.js
+├── utils/
+│   ├── bookingHelpers.js
+│   ├── calculateNights.js
+│   ├── hostHelper.js
+│   ├── logs.js
+│   ├── reviewHelpers.js
+│   ├── toNumber.js
+│   └── validate.js
+├── index.js
+└── instrument.mjs
+
+prisma/
+├── schema.prisma
+├── migrations/
+└── seed.js
+````
+
+---
+
+# 🔐 Authentication Flow
+
+1. User logs in via `/login`
+2. Server validates credentials from users data
+3. Server returns a JWT token
+4. Client includes token in `Authorization` header for protected routes
+5. Middleware validates token and grants access
+
+**Protected routes include:**
+
+* Create / Update / Delete Bookings
+* Create / Update / Delete Properties
+* Create / Update / Delete Hosts
+* Create / Update / Delete Reviews
+* Create / Update / Delete Users
+
+**Header example:**
+
+```text
+Authorization: Bearer <JWT_TOKEN>
+```
+
+---
+
+# 📡 API Endpoints
+
+### **Auth**
+
+| Method | Endpoint | Description             | Protected |
+| ------ | -------- | ----------------------- | --------- |
+| POST   | /login   | User login, returns JWT | ❌         |
+
+---
+
+### **Bookings**
+
+| Method | Endpoint      | Description       | Protected |
+| ------ | ------------- | ----------------- | --------- |
+| GET    | /bookings     | Get all bookings  | ❌         |
+| GET    | /bookings/:id | Get booking by ID | ❌         |
+| POST   | /bookings     | Create booking    | ✅         |
+| PUT    | /bookings/:id | Update booking    | ✅         |
+| DELETE | /bookings/:id | Delete booking    | ✅         |
+
+---
+
+### **Properties**
+
+| Method | Endpoint        | Description        | Protected |
+| ------ | --------------- | ------------------ | --------- |
+| GET    | /properties     | Get all properties | ❌         |
+| GET    | /properties/:id | Get property by ID | ❌         |
+| POST   | /properties     | Create property    | ✅         |
+| PUT    | /properties/:id | Update property    | ✅         |
+| DELETE | /properties/:id | Delete property    | ✅         |
+
+---
+
+### **Hosts**
+
+| Method | Endpoint   | Description    | Protected |
+| ------ | ---------- | -------------- | --------- |
+| GET    | /hosts     | Get all hosts  | ❌         |
+| GET    | /hosts/:id | Get host by ID | ❌         |
+| POST   | /hosts     | Create host    | ✅         |
+| PUT    | /hosts/:id | Update host    | ✅         |
+| DELETE | /hosts/:id | Delete host    | ✅         |
+
+---
+
+### **Reviews**
+
+| Method | Endpoint     | Description      | Protected |
+| ------ | ------------ | ---------------- | --------- |
+| GET    | /reviews     | Get all reviews  | ❌         |
+| GET    | /reviews/:id | Get review by ID | ❌         |
+| POST   | /reviews     | Create review    | ✅         |
+| PUT    | /reviews/:id | Update review    | ✅         |
+| DELETE | /reviews/:id | Delete review    | ✅         |
+
+---
+
+### **Users**
+
+| Method | Endpoint   | Description    | Protected |
+| ------ | ---------- | -------------- | --------- |
+| GET    | /users     | Get all users  | ❌         |
+| GET    | /users/:id | Get user by ID | ❌         |
+| POST   | /users     | Create user    | ✅         |
+| PUT    | /users/:id | Update user    | ✅         |
+| DELETE | /users/:id | Delete user    | ✅         |
+
+---
+
+# 📦 Installation
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/JQnetherlands/BackEndProyectAssignment
+cd BackEndProyectAssignment
+```
+
+2. Install dependencies:
+
+```bash
 npm install
+```
+
+3. Create a `.env` file (only need to set your secret key):
+
+```env
+AUTH_SECRET_KEY=your-secret-key
+DATABASE_URL=postgresql://user:password@hostname:port/dbname
+```
+
+4. Start the development server:
+
+```bash
 npm run dev
 ```
 
-## Starting the App
+> ⚠️ All database data is live on Railway. Do **not** reset or seed unless you are using a local DB copy.
 
-To start the app, follow these steps:
+---
 
-0. I added an `.env.example`
-1. Create a `.env` file in the root directory.
-2. Replace the values for `AUTH_SECRET_KEY` and `SENTRY_DSN` with your own values.
+# 🔮 Future Improvements
 
-```plaintext
-AUTH_SECRET_KEY=your_secret_key_here
-SENTRY_DSN=your_sentry_dsn_here
-DATABASE_URL=""
+* Input validation with Zod or Joi
+* Role-based authorization
+* Pagination & filtering for lists
+* Rate limiting & security headers
+* Unit and integration testing
+* Refresh token support for JWT
+
+---
+
+# 📚 What I Learned
+
+* Service-layer architecture for Node.js APIs
+* JWT authentication and protected routes
+* Middleware patterns and centralized error handling
+* Structuring a scalable REST API
+* Integrating Prisma ORM with SQLite/PostgreSQL
+
+---
+
+# 👤 Author
+
+**Jhonny Quebrada**
+
+GitHub: [https://github.com/JQnetherlands](https://github.com/JQnetherlands)
+Portfolio: *(add your link here)*
+
+---
+
+# 📄 License
+
+MIT License
+
 ```
-
-## Running tests
-
-Tests are created using Newman, a command-line tool that is able to automate execution of Postman-created tests. Therefore, this command will simulate more or less the same tests that we executed during the course (e.g. test if the "happy case" returns 200 or 201 status code, or it returns 404 Not found when we are requesting a non-existing ID).
-
-To run the tests, perform the following steps:
-
-1. Start the server. This can usually be done by running `npm run dev` in the folder you want to test. Please note this command reset and reseed the DB
-2. Go to `postman/environments` folder in the repo. It has a content like this:
-
-```json
-{
-  "id": "f1936dc5-a5da-47d7-8189-045437f96e9e",
-  "name": "Local",
-  "values": [
-    {
-      "key": "baseUrl",
-      "value": "http://0.0.0.0:3000",
-      "type": "default",
-      "enabled": true
-    }
-  ],
-  "_postman_variable_scope": "environment",
-  "_postman_exported_at": "2023-08-11T05:55:13.469Z",
-  "_postman_exported_using": "Postman/10.16.9"
-}
-```
-
-3. If your server is running on a different port or URL, change the value `http://0.0.0.0:3000` to your server's data (this is the default one though).
-4. Run the following command
-
-```plaintext
-npm test
-```
-
-After this, you will see the test results prompted to the terminal. If you have a look at the `package.json` file, you will see that it executes the collection stored in the `postman` folder of the repo root.
-
-Important: When dealing with JSON data, please, make sure that you restart the server with `npm run dev` every time you execute tests! This is important because some tests will remove data via DELETE endpoints and that operation cannot be repeated with the same ID again and again.
