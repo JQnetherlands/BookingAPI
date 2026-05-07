@@ -23,7 +23,20 @@ app.use('/hosts', hostsRouter);
 app.use('/login', loginRouter);
 
 app.get("/", (req, res) => {
-  res.send("Hello world!");
+  res.json({
+    name: "Booking API",
+    status: "running",
+    version: "1.0.0",
+    documentation: "https://github.com/JQnetherlands/BookingAPI",
+    endpoints: {
+      users: "/users",
+      bookings: "/bookings",
+      properties: "/properties",
+      reviews: "/reviews",
+      hosts: "/hosts",
+      auth: "/login",
+    },
+  });
 });
 app.get("/debug-sentry", function mainHandler(req, res) {
   throw new Error("My first Sentry error!");

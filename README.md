@@ -7,9 +7,9 @@ Built with a focus on **clean architecture, service-layer separation, JWT authen
 
 # 🚀 Live API
 
-Base URL: *https://bookingapi-production-d45d.up.railway.app/*
+Base URL: *https://bookingapi-prho.onrender.com*
 
-[https://bookingapi-production-d45d.up.railway.app/](https://bookingapi-production-d45d.up.railway.app/)
+[https://bookingapi-prho.onrender.com](https://bookingapi-prho.onrender.com)
 
 ---
 
@@ -45,7 +45,7 @@ Key goals:
 - Node.js  
 - Express  
 - Prisma (ORM)  
-- PostgreSQL (Railway)  
+- PostgreSQL (Neon)  
 - JWT authentication  
 - REST API principles  
 - Postman for testing  
