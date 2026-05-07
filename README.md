@@ -254,7 +254,47 @@ DATABASE_URL=postgresql://user:password@hostname:port/dbname
 npm run dev
 ```
 
-> ⚠️ All database data is live on Railway. Do **not** reset or seed unless you are using a local DB copy.
+---
+
+# 🧩 Architecture Highlights
+
+## Service Layer
+
+All business logic is separated into:
+
+```
+src/services/
+```
+
+Benefits:
+
+* reusable logic
+* cleaner routes
+* easier testing
+* scalable structure
+
+---
+
+## Middleware System
+
+* `auth.js` → protects routes
+* `errorHandler.js` → centralizes errors
+* `logMiddleware.js` → logs requests
+* `NotFoundErrorHandler.js` → handles 404
+
+---
+
+## Prisma ORM
+
+Database access is handled via Prisma:
+
+```
+src/lib/prisma.js
+```
+
+* type-safe queries
+* easy migrations
+* scalable DB layer
 
 ---
 
@@ -292,4 +332,4 @@ Portfolio: *(add your link here)*
 
 MIT License
 
-```
+
